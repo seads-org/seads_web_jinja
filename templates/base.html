@@ -1,3 +1,11 @@
+{% macro md_card() -%}
+<div class="card"><div class="card-content"><div class="content"></div>
+{% markdown %}
+{{caller()}}
+{% endmarkdown %}
+</div></div></div>
+{%- endmacro %}
+
 <!DOCTYPE html>
 <html>
   <head>

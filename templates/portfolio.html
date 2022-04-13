@@ -5,12 +5,11 @@
 <div class="container">
 
 <br>
-
 <div class="content">
 <h1 class="is-1">Examples of our past projects</h1>
 </div>
 
-<div class="card"><div class="card-content"><div class="content">
+{% include 'card_start.html' %}
 {% markdown %}
 
 ## EAG survey data analysis
@@ -25,11 +24,9 @@ See [our post](https://forum.effectivealtruism.org/posts/TALsgkHMReGRpxHq8/eag-s
 for more details.
 
 {% endmarkdown%}
-</div></div></div>
+{% include 'card_end.html' %}
 
-<br>
-
-<div class="card"><div class="card-content"><div class="content">
+{% include 'card_start.html' %}
 {% markdown %}
 
 ## Analyzing view metrics on the EA Forum
@@ -39,11 +36,9 @@ See [the post](https://forum.effectivealtruism.org/posts/TDnvTsK4vFEhE6TKh/analy
 for more details.
 
 {% endmarkdown%}
-</div></div></div>
+{% include 'card_end.html' %}
 
-<br>
-
-<div class="card"><div class="card-content"><div class="content">
+{% include 'card_start.html' %}
 {% markdown %}
 
 ## Water Data Analysis for the Fish Welfare Initiative
@@ -53,11 +48,9 @@ Investigation of how water quality (e.g. oxygen concentration) varied across fis
 installed facilities, and influenced fish disease and population.
 
 {% endmarkdown%}
-</div></div></div>
+{% include 'card_end.html' %}
 
-<br>
-
-<div class="card"><div class="card-content"><div class="content">
+{% include 'card_start.html' %}
 {% markdown %}
 
 ## GWWC Influencer Network Analysis
@@ -66,7 +59,7 @@ Scraping of GWWC twitter network and network analysis on most influential nodes.
 The aim is to improve spreading of EA ideas.
 
 {% endmarkdown%}
-</div></div></div>
+{% include 'card_end.html' %}
 
 </div>
 
