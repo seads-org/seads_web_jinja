@@ -1,6 +1,73 @@
 {% set title = "Example projects" %}
 {% extends "base.html" %}
+{% block content%}
 
-{% block content %}
-Index
+<div class="container">
+
+<br>
+
+<div class="content">
+<h1 class="is-1">Examples of our past projects</h1>
+</div>
+
+<div class="card"><div class="card-content"><div class="content">
+{% markdown %}
+
+## EAG survey data analysis
+
+On behalf of CEA, SEADS analysed survey data for EA Global events (as well as EAGx and EAG Virtual events)
+ranging from 2016 to 2020. We estimated value based on how likely participants were to recommend future
+conferences. We concluded from our analysis that community-related variables (such as feeling welcome or
+making connections with new people) are more closely linked to this likelihood than content-related variables
+(such as enjoyment of speaker sessions). Our demographic analysis of community-related variables yielded no
+significant differences based on participants’ age, ethnicity, or gender.
+See [our post](https://forum.effectivealtruism.org/posts/TALsgkHMReGRpxHq8/eag-survey-data-analysis-1)
+for more details.
+
+{% endmarkdown%}
+</div></div></div>
+
+<br>
+
+<div class="card"><div class="card-content"><div class="content">
+{% markdown %}
+
+## Analyzing view metrics on the EA Forum
+
+Analysis of how popularity of EA forum changed overtime and how views are distributed across posts and topics.
+See [the post](https://forum.effectivealtruism.org/posts/TDnvTsK4vFEhE6TKh/analyzing-view-metrics-on-the-ea-forum)
+for more details.
+
+{% endmarkdown%}
+</div></div></div>
+
+<br>
+
+<div class="card"><div class="card-content"><div class="content">
+{% markdown %}
+
+## Water Data Analysis for the Fish Welfare Initiative
+
+Exploratory data analysis for the Fish Welfare Initiative to inform fish farming policies in India.
+Investigation of how water quality (e.g. oxygen concentration) varied across fish farms, depend on the
+installed facilities, and influenced fish disease and population.
+
+{% endmarkdown%}
+</div></div></div>
+
+<br>
+
+<div class="card"><div class="card-content"><div class="content">
+{% markdown %}
+
+## GWWC Influencer Network Analysis
+
+Scraping of GWWC twitter network and network analysis on most influential nodes.
+The aim is to improve spreading of EA ideas.
+
+{% endmarkdown%}
+</div></div></div>
+
+</div>
+
 {% endblock %}
