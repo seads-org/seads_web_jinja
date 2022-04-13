@@ -1,0 +1,30 @@
+{% set title = "SEADS" %}
+{% extends "base.html" %}
+
+{% block image_size %} is-medium {% endblock %}
+{% block image_text %}
+<h1 class="title is-1">SEADS</h1>
+<h2 class="subtitle">Services for EAs in Data Science</h2>
+{% endblock %}
+
+{% block content %}
+<section class="container">
+<div class="hero-body">
+<div class="container content is-medium" style="width:90%; align:center; text-align: justify;">
+{% markdown %}
+
+# h1
+
+SEADS *text*.
+
+Feel free to write us if:
+
+- you have a data analysis project you need help with
+- you want to volunteer at our organization
+- you have any suggestion, question, remark, or just want to stay in touch :)
+
+{% endmarkdown %}
+</div>
+</div>
+</section>
+{% endblock %}

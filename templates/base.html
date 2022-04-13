@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{title}}</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+
+  <body>
+    <div id="fill-page" class="has-background-light">
+      <section id="hero-img" class="hero {% block image_size %} is-small {% endblock %}">
+        <nav class="navbar" style="background-color: rgba(76, 76, 76, 0.3);">
+            <div class="navbar-brand" style="display: flex; align-items: center">
+              <a class="navbar-item has-text-white" href="/">SEADS</a>
+            </div>
+
+            <div class="navbar-menu is-active">
+              <div class="navbar-end">
+                <a class="navbar-item has-text-white" href="/about.html">About us</a>
+                <a class="navbar-item has-text-white" href="/contact.html">Contact</a>
+                <a class="navbar-item has-text-white" href="/portfolio.html">Example projects</a>
+              </div>
+            </div>
+          </nav>
+        <div class="hero-body">
+            <div class="container">
+              {% block image_text %}
+              <h1 class="title is-1">{{title}}</h1>
+              {% endblock %}
+            </div>
+        </div>
+    </section>
+
+    {% block content %}{% endblock %}
+
+    </div>
+    <footer class="footer is-narrow has-background-dark">
+      <div class="content has-text-white-ter">&copy; SEADS 2022</div>
+    </footer>
+  </body>
+</html>

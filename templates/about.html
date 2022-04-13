@@ -1,0 +1,13 @@
+{% set title = "About us" %}
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-small">
+    <div class="hero-body">
+    <div class="container content is-medium" style="width:90%; align:center; text-align: justify;">
+    {% markdown %}
+    {% endmarkdown %}
+    </div>
+    </div>
+</section>
+{% endblock %}
