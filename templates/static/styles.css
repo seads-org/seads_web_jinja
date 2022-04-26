@@ -1,5 +1,6 @@
 .title {
   color: white;
+  font-size: 4rem;
   font-weight: 800;
   font-family: 'Nunito Sans', sans-serif;
   text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
@@ -7,6 +8,7 @@
 
 .subtitle {
   color: white;
+  font-size: 2rem;
   text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
 }
 
