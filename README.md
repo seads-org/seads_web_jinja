@@ -11,6 +11,7 @@ And then build it to produce `docs` htmls:
 
 ```
 python build.py
+cp -r static docs
 ```
 
 To serve them locally (e.g., for testing purposes), you can use python server:
