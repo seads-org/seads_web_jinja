@@ -13,7 +13,7 @@
 }
 
 #hero-img {
-  background: static('/static/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
+  background: url('/static/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
