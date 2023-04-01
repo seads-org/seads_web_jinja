@@ -1,17 +1,21 @@
 {% set title = "Data Science for Effective Good" %}
+{% set image_padding = "5" %}
 {% extends "base.html" %}
 
-{% block image_size %} is-medium {% endblock %}
 {% block image_text %}
-<h1 class="title is-1">SEADS</h1>
-<h2 class="subtitle">{{title}}</h2>
+<h1 class="fw-bold text-start title">SEADS</h1>
+<p class="fw-light lead subtitle text-start">Data Science for Effective Good</p>
 {% endblock %}
 
 {% block content %}
-<section class="container">
-<div class="hero-body">
-<div class="container content is-medium" style="width:90%; align:center; text-align: justify;">
+<!-- <div class="hero__bg--index"> -->
+<div class="hero--full pb-3">
+<section class="container pt-4">
+<div class="container content fs-5">
 {% markdown %}
+
+<h1 class="title">SEADS</h1>
+<p class="fw-light lead subtitle text-start">Data Science for Effective Good</p>
 
 **SEADS** is a Data Science consultancy focused on supporting highly-effective charities. Our services cover a broad range from executing concrete projects to using data for informing strategical decisions or optimizing data pipelines in your organization. We can help you with a broad range of projects, including:
 
@@ -30,6 +34,35 @@ Even if you don't have a concrete project in mind, but think that you could beni
 {% endmarkdown %}
 
 </div>
-</div>
 </section>
+
+</div>
+
+<div class="pt-3 pb-3"></div>
+
+<div class="">
+<section class="container pt-4 pb-3 fs-5">
+    <h1 id="portfolio" class="inset text-primary">Our Portfolio</h1>
+
+    <div class="row">
+    {% for p in projects %}
+    <div class="col-md-4 pe-5 pb-2"><div class="card"><div class="card-body">
+        <h3 class="card-title">{{ p.title }}</h3>
+        {# <p class="card-text card-subtitle">{{ m.location }}</p> #}
+        <p class="card-text">
+            {% markdown %}
+            <br>
+            {{ p.description }}
+
+            {% endmarkdown %}
+        </p>
+    </div></div></div>
+
+    {% endfor %}
+    </div>
+
+    </div>
+    </section>
+</div>
+
 {% endblock %}

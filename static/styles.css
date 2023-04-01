@@ -12,8 +12,8 @@
   text-shadow: 1px 1px 1px #000, 3px 3px 5px rgb(0, 0, 3);
 }
 
-#hero-img {
-  background: url('/static/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
+.hero-img {
+  background-image: url('/static/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
   background-position: center;
   background-repeat: no-repeat;
 }
