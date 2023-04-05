@@ -4,14 +4,14 @@ The website is written in HTML with [Bulma](https://bulma.io/documentation/) for
 
 To use it, install dependencies first:
 ```
-pip install staticjinja jinja-markdown
+pip install staticjinja jinja-markdown watchdog libsass
+npm install
 ```
 
 And then build it to produce `docs` HTMLs:
 
 ```
 python build.py
-cp -r static docs
 ```
 
 To serve them locally (e.g., for testing purposes), you can use python server:

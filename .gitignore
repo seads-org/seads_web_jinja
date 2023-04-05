@@ -1,2 +1,5 @@
 .history
 .idea
+node_modules
+docs/*.css
+docs/*.html
