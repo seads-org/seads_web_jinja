@@ -8,14 +8,13 @@ pip install staticjinja jinja-markdown watchdog libsass
 npm install
 ```
 
-And then build it to produce `docs` HTMLs:
+To to produce `docs`:
 
 ```
 python build.py
 ```
 
-To serve them locally (e.g., for testing purposes), you can use python server:
+To run dev server:
 ```
-cd docs
-python -m http.server 8000
+python build.py dev
 ```

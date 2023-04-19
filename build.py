@@ -1,5 +1,6 @@
 import staticjinja
-import os, os.path, threading
+import socketserver, http.server
+import sys, os, os.path, threading
 import watchdog.events, watchdog.observers
 import sass
 
@@ -49,10 +50,6 @@ def read_members():
                 'name': 'Georg Wind', 'location': 'Konstanz, Germany', 'url': 'https://www.linkedin.com/in/georg-wind/',
                 'bio': 'Georg is pursuing a master&rsquo;s degree in Social and Economic Data Science from the University of Konstanz and holds a BA in Philosophy &amp; Economics from the University of Bayreuth. He has several years of experience in strategy development, operational management, and partnerships development for various NPOs.'
             },
-            # {
-            #     'name': '', 'location': '', 'url': '',
-            #     'bio': ''
-            # },
         ],
         'past_members': [
             {
@@ -75,14 +72,16 @@ def read_projects(path):
     for fn in os.listdir(path):
         with open(os.path.join(path, fn)) as f:
             lines = f.readlines()
-            if len(lines) == 0:
+            if len(lines) < 5:
                 continue
 
-            projects.append({
-                'title': lines[0].lstrip("#").strip(),
-                'tags': lines[2].lstrip("Tags:").strip().split(),
-                'description': "\n".join([l.strip() for l in lines[4:] if len(l.strip()) > 0]),
-            })
+            title   = lines[0].lstrip("#").strip()
+            tags    = lines[2].lstrip("Tags:").strip().split()
+            desc    = "".join([l for l in lines[4:]])
+            project = { 'title': title, 'tags': tags, 'description': desc }
+            projects.append(project)
+            print(project)
+
     return projects
 
 def build_styles(path):
@@ -97,50 +96,88 @@ class Site(staticjinja.Site):
     def is_template(self, template):
         return template in ROOTS
 
-def main():
-    PROJECTS  = "./projects/"
-    STYLES    = './styles/'
-    TEMPLATES = './templates'
+PROJECTS  = "./projects/"
+STYLES    = './styles/'
+TEMPLATES = './templates'
+PORT      = 8000
+DIRECTORY = "./docs/"
 
-    members = read_members()
+def build():
+    members  = read_members()
     projects = read_projects(PROJECTS)
     build_styles(STYLES)
 
-    site = Site.make_site(outpath="docs", extensions=['jinja_markdown.MarkdownExtension'], contexts=[])
-    build_html(site, members, projects)
-
-    @debounce(0.1)
-    def on_styles_change():
-        print("Rebuilding styles (styles changed)")
-        build_styles(STYLES)
-
-    @debounce(0.1)
-    def on_projects_change():
-        print("Rebuilding htmls (data changed)")
-        nonlocal projects
-        projects = read_projects(PROJECTS)
-        build_html(site, members, projects)
-
-    @debounce(0.1)
-    def on_templates_change():
-        print("Rebuilding htmls (templates changed)")
-        build_html(site, members, projects)
-
-
-    observers = [
-        observe(STYLES,    on_styles_change),
-        observe(PROJECTS,  on_projects_change),
-        observe(TEMPLATES, on_templates_change),
+    extensions = [
+        'jinja_markdown.MarkdownExtension',
     ]
 
+    site = Site.make_site(outpath="docs", extensions=extensions, contexts=[])
+    build_html(site, members, projects)
+
+    return members, projects, site
+
+def start_dev_server():
+    class Handler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=DIRECTORY, **kwargs)
+
+    class ThreadedHTTPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
+        pass
+
+    httpd = ThreadedHTTPServer(("", PORT), Handler)
+    httpd.RequestHandlerClass.directory = DIRECTORY
+    print("Serving at port", PORT)
+
+    server_thread = threading.Thread(target=httpd.serve_forever)
+    server_thread.daemon = True
+    server_thread.start()
+
+    return httpd
+
+def dev():
     try:
-        while all(o.is_alive() for o in observers):
+        members, projects, site = build()
+        server = start_dev_server()
+        
+        @debounce(0.1)
+        def on_styles_change():
+            print("Rebuilding styles (styles changed)")
+            build_styles(STYLES)
+
+        @debounce(0.1)
+        def on_projects_change():
+            print("Rebuilding htmls (data changed)")
+            nonlocal projects
+            projects = read_projects(PROJECTS)
+            build_html(site, members, projects)
+
+        @debounce(0.1)
+        def on_templates_change():
+            print("Rebuilding htmls (templates changed)")
+            build_html(site, members, projects)
+
+
+        observers = [
+            observe(STYLES,    on_styles_change),
+            observe(PROJECTS,  on_projects_change),
+            observe(TEMPLATES, on_templates_change),
+        ]
+
+        try:
+            while all(o.is_alive() for o in observers):
+                for observer in observers:
+                    observer.join(1)
+        finally:
             for observer in observers:
-                observer.join(1)
+                observer.stop()
+                observer.join()
     finally:
-        for observer in observers:
-            observer.stop()
-            observer.join()
+        server.shutdown()
+        server.server_close()
+        print("Stop serving at port", PORT)
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) > 1 and sys.argv[1] == "dev":
+        dev()
+    else:
+        build()
