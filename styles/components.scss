@@ -1,79 +1,81 @@
 .title {
-    font-size: 4rem;
-    font-weight: 800;
+  font-size: 4rem;
+  font-weight: 800;
 }
 
 .subtitle {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .hero__bg--index {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 }
 
-
 .hero__bg--index:before {
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.75;
-    background-image: url('/images/leaf_urban.png');
-    // background-image: url('/images/leaf_analytics.png');
-    // background-image: url('/images/network_diagram_tree.png');
-    // background-image: url('/images/leaf_art.png');
-    // background-image: url('/images/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    z-index: -1;
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.75;
+  background-image: url('/images/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
+  // background-image: url('/images/leaf_analytics.png');
+  // background-image: url('/images/network_diagram_tree.png');
+  // background-image: url('/images/leaf_art.png');
+  // background-image: url('/images/carlos-muza-hpjSkU2UYSU-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: -1;
 }
 
 .hero--full {
-    --bs-bg-opacity: 0.9;
-    @extend .bg-dark, .text-light;
+  padding: 20px 0;
+  margin: 40px 0;
+  --bs-bg-opacity: 0.9;
+  @extend .bg-dark, .text-light;
 }
 
 .hero--group {
-    --bs-bg-opacity: 0.75;
-    @extend .hero--full;
+  --bs-bg-opacity: 0.75;
+  @extend .hero--full;
 }
 
 .nav-link {
-    @extend .pb-xl-2, .pe-xl-2, .ps-xl-2, .pt-xl-2, .text-white;
+  @extend .pb-xl-2, .pe-xl-2, .ps-xl-2, .pt-xl-2, .text-white;
 }
 
 .navbar-brand {
-    @extend .text-uppercase, .fw-bold, .text-primary;
+  @extend .text-uppercase, .fw-bold, .text-primary;
 }
 
 .card-title {
-    text-decoration: none;
-    @extend .text-primary;
+  text-decoration: none;
+  @extend .text-primary;
 }
 
 .card-subtitle {
-    @extend .text-muted, .pb-2;
+  @extend .text-muted, .pb-2;
+  color: #6c757d !important;
 }
 
 .card {
-    box-shadow: none;
-    border: none;
+  box-shadow: none;
+  border: none;
 
-    &:hover {
-      box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-    }
+  &:hover {
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
+  }
 
-    --bs-bg-opacity: 0.9;
-    @extend .bg-dark, .text-white;
+  --bs-bg-opacity: 0.9;
+  @extend .bg-dark, .text-white;
 }
 
 .inset {
-    display: inline-block;
-    --bs-bg-opacity: 0.9;
-    @extend .bg-dark, .text-white, .p-3, .pe-5;
+  display: inline-block;
+  --bs-bg-opacity: 0.9;
+  @extend .bg-dark, .text-white, .p-3, .pe-5;
 }

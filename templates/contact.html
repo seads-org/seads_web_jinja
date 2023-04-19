@@ -4,39 +4,64 @@
 {% block content %}
 
 <section class="hero">
-    <div class="hero-body">
+  <div class="hero-body">
+    <div class="row">
+      <div class="col-md-10 col-lg-9 col-xl-5 m-auto">
         <div class="container">
-
-            <div class="container content is-medium" style="width:90%; align:center; text-align: justify;">
+          <div class="card my-4">
+            <div class="card-body">
+              <div class="card-text m-2">
                 {% markdown %}
-
                 If you have a data analysis project you need help with, please fill [the project
                 form](https://forms.clickup.com/24435549/f/q9pux-1401/NQXKFQG3DTHT2KL9KA).
 
                 If you want to volunteer at our organization, please fill [the volunteer
                 form](https://forms.clickup.com/24435549/f/q9pux-1421/3KX03A1CTSH4681Q2U).
 
-                If you have any suggestion, question, remark, or just want to stay in touch, please contact us through
+                If you have any suggestion, question, remark, or just want to stay in touch, please contact
+                us through
                 the form below :)
                 {% endmarkdown %}
-
-                <form accept-charset="UTF-8" action="https://formspree.io/f/xayvdnwy" method="POST" role="form">
-                    <label class="label" for="name">Your Name</label>
-                    <input type="text" id="name" name="name" class="input" required placeholder=" "
-                        aria-labelledby="name" />
-                    <label class="label" for="email">Email Address</label>
-                    <input type="email" id="email" name="email" class="input" required placeholder=" "
-                        aria-labelledby="email" />
-                    <label class="label" for="message">Message</label>
-                    <textarea id="message" name="message" class="textarea" aria-labelledby="message"></textarea>
-                    <input class="input" type="submit" value="Send" />
-                </form>
-
-                Or send us an email to: <a href="mailto:seads.agency@gmail.com">seads.agency@gmail.com</a>.
-
+              </div>
             </div>
+          </div>
+
+          <div class="card my-4">
+            <div class="card-body">
+              <div class="card-text m-2">
+                <form accept-charset="UTF-8" action="https://formspree.io/f/xayvdnwy" method="POST" role="form">
+                  <div class="mb-3">
+                    <label class="form-label" for="name">Your Name</label>
+                    <input class="form-control" type="text" id="name" name="name" required aria-labelledby="name" placeholder="Name" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="email">Email Address</label>
+                    <input class="form-control" type="email" id="email" name="email" required aria-labelledby="email" placeholder="Email" />
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label" for="message">Message</label>
+                    <textarea class="form-control" id="message" name="message" aria-labelledby="message" placeholder="Message"></textarea>
+                  </div>
+                  <input class="btn btn-primary" type="submit" value="Send" />
+                </form>
+              </div>
+            </div>
+          </div>
+
+          <div class="card my-4">
+            <div class="card-body">
+              <div class="card-text m-2">
+                Or send us an email to: <a href="mailto:seads.agency@gmail.com">seads.agency@gmail.com</a>.
+              </div>
+            </div>
+          </div>
+
         </div>
+      </div>
     </div>
+  </div>
 </section>
 
 {% endblock %}
