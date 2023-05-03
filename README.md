@@ -7,19 +7,19 @@ The website is written in HTML with Bootstrap for styles and [Jinja templates](h
 To use it, install dependencies first:
 
 ```
-pip install staticjinja jinja-markdown watchdog libsass
+mamba env create -f ./environment.yml --prefix ./env
 npm install
 ```
 
 To produce `docs`:
 
 ```
-python build.py
+./env/bin/python build.py
 ```
 
 To run dev server:
 ```
-python build.py dev
+./env/bin/python build.py dev
 ```
 
 ## Adding project descriptions
