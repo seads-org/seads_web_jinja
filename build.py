@@ -51,7 +51,7 @@ def read_members():
                 'bio': 'Georg is pursuing a master&rsquo;s degree in Social and Economic Data Science from the University of Konstanz and holds a BA in Philosophy &amp; Economics from the University of Bayreuth. He has several years of experience in strategy development, operational management, and partnerships development for various NPOs.'
             },
             {
-                'name': 'Elena Plekhanova', 'location': 'Tbilisi, Georgia', 'url': 'https://www.linkedin.com/in/elena-plekhanova-9367a910a/',
+                'name': 'Elena Plekhanova', 'location': 'Tbilisi, Georgia', 'url': 'https://www.linkedin.com/in/elenaplekhanova/',
                 'bio': "Elena holds a PhD in Ecology from the University of Zurich. She's an expert in analysis of ecological data."
             }
         ],
