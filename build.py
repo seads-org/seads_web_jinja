@@ -50,15 +50,15 @@ def read_members():
                 'name': 'Georg Wind', 'location': 'Konstanz, Germany', 'url': 'https://www.linkedin.com/in/georg-wind/',
                 'bio': 'Georg is pursuing a master&rsquo;s degree in Social and Economic Data Science from the University of Konstanz and holds a BA in Philosophy &amp; Economics from the University of Bayreuth. He has several years of experience in strategy development, operational management, and partnerships development for various NPOs.'
             },
+            {
+                'name': 'Elena Plekhanova', 'location': 'Tbilisi, Georgia', 'url': 'https://www.linkedin.com/in/elena-plekhanova-9367a910a/',
+                'bio': "Elena holds a PhD in Ecology from the University of Zurich. She's an expert in analysis of ecological data."
+            }
         ],
         'past_members': [
             {
                 'name': 'Severin Trösch', 'location': 'Bern, Switzerland', 'url': 'https://www.linkedin.com/in/severin-tr%C3%B6sch-0a8a37103/',
                 'bio': 'Senior Data Scientist at Datahouse AG. Severin came up with the original idea of SEADS.'
-            },
-            {
-                'name': 'Elena Plekhanova', 'location': 'Tbilisi, Georgia', 'url': 'https://www.linkedin.com/in/elena-plekhanova-9367a910a/',
-                'bio': "Elena holds a PhD in Ecology from the University of Zurich. She's an expert in analysis of ecological data."
             },
             {
                 'name': 'David Marti', 'location': 'Basel, Switzerland', 'url': 'https://www.linkedin.com/in/david-b-marti/',
@@ -138,7 +138,7 @@ def dev():
     try:
         members, projects, site = build()
         server = start_dev_server()
-        
+
         @debounce(0.1)
         def on_styles_change():
             print("Rebuilding styles (styles changed)")
